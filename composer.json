@@ -1,6 +1,6 @@
 {
     "name": "gealtec/datatables-slim",
-    "version":"1.0.1",
+    "version":"1.0.2",
     "type": "library",
     "description": "Create HTTP responses compatible with Datatables for JQuery from Eloquent Models, Query Builders, and Laravel Collections.",
     "keywords": [
