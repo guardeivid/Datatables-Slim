@@ -11,7 +11,7 @@ class DTResponse implements DatatablesServerSide, Arrayable, JsonSerializable, J
     private $response;
     private $collectionName;
 
-    public function __construct(Collection $collection, int $recordsTotal, int $recordsFiltered, int $draw, ?string $collectionName = null)
+    public function __construct(Collection $collection, int $recordsTotal, int $recordsFiltered, int $draw, string $collectionName = null)
     {
         $this->response = collect();
         $this->collectionName = (is_null($collectionName)) ? "data" : $collectionName;

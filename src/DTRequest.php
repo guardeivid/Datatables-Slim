@@ -1,7 +1,7 @@
 <?php
 
 namespace Markese\Datatables;
-use Illuminate\Http\Request;
+use Slim\Http\Request;
 
 
 class DTRequest
@@ -21,34 +21,36 @@ class DTRequest
 
     public function __construct(Request $request)
     {
-        $this->sort = !empty($request->columns[$request->order[0]['column']]);
+        $params=$request->getQueryParams();
 
-        $col = $request->columns[$request->order[0]['column']];
+        $this->sort = !empty($params['columns'][$params['order'][0]['column']]);
+
+        $col = $params['columns'][$params['order'][0]['column']];
 
         $this->sortCol = (!empty($col['name'])) ? $col['name'] : $col['data'];
 
-        $this->sortDir = ($request->order[0]['dir'] === 'asc') ? 'asc' : 'desc';
+        $this->sortDir = ($params['order'][0]['dir'] === 'asc') ? 'asc' : 'desc';
 
-        $this->paginate = (isset($request->start) && isset($request->length) && (int) $request->length !== -1);
+        $this->paginate = (isset($params['start']) && isset($params['length']) && (int) $params['length'] !== -1);
 
-        $this->page = ($this->paginate) ? ($request->start / $request->length) + 1 : 1;
+        $this->page = ($this->paginate) ? ($params['start'] / $params['length']) + 1 : 1;
 
-        $this->start = $request->start;
+        $this->start = $params['start'];
 
-        $this->length = $request->length;
+        $this->length = $params['length'];
 
-        $this->draw = (int) $request->draw;
+        $this->draw = (int) $params['draw'];
 
-        $this->search = !empty($request->search['value']);
+        $this->search = !empty($params['search']['value']);
 
-        $this->searchTerms = explode(" ", strtolower($request->search['value']));
+        $this->searchTerms = explode(" ", strtolower($params['search']['value']));
 
-        $this->columns = collect($request->columns)
+        $this->columns = collect($params['columns'])
             ->map(function ($col) {
                 return !empty($col['name']) ? $col['name'] : $col['data'];
             });
 
-        $this->searchColumns = collect($request->columns)
+        $this->searchColumns = collect($params['columns'])
             ->filter(function($col){
                 return $col['searchable'] === 'true';
             })

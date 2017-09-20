@@ -21,7 +21,7 @@ class DTBuilderCollection extends DTBuilderTemplate
      * @param DTRequest $requestIn The request data from the client.
      * @param null|string|null $collectionNameIn Optional json "data" attribute for the Datatable to retrieve from.
      */
-    public function __construct(Collection $collectionIn, DTRequest $requestIn, ?string $collectionNameIn = null)
+    public function __construct(Collection $collectionIn, DTRequest $requestIn, string $collectionNameIn = null)
     {
         parent::__construct($requestIn, $collectionNameIn);
         $this->obj = $collectionIn;
@@ -31,7 +31,7 @@ class DTBuilderCollection extends DTBuilderTemplate
      * Case insensitive search algorithm for Laravel Collections. Alters the Collection $obj
      * to include rows that have all of the search terms in any of its columns.
      */
-    protected function search(): void
+    protected function search()
     {
         $terms = $this->dtRequest->searchTerms;
         $columns = $this->dtRequest->searchColumns;
@@ -71,7 +71,7 @@ class DTBuilderCollection extends DTBuilderTemplate
      * Retrieve the sort direction from the client request and sort the Collection $obj using
      * the appropriate sort method (ascending or descending).
      */
-    protected function sort(): void
+    protected function sort()
     {
         $req = $this->dtRequest;
         $this->obj = ($req->sortDir === 'asc') ? $this->obj->sortBy($req->sortCol) : $this->obj->sortByDesc($req->sortCol);
@@ -80,7 +80,7 @@ class DTBuilderCollection extends DTBuilderTemplate
     /**
      * Retrieve the pagination details from the client request and paginate the Collection $obj.
      */
-    protected function paginate(): void
+    protected function paginate()
     {
         $req = $this->dtRequest;
         $this->obj = $this->obj->forPage($req->page, $req->length)->values();

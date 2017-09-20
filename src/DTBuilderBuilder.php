@@ -8,7 +8,7 @@ class DTBuilderBuilder extends DTBuilderTemplate
 {
     protected $obj;
 
-    public function __construct(Builder $queryIn, DTRequest $requestIn, ?string $collectionNameIn = null)
+    public function __construct(Builder $queryIn, DTRequest $requestIn, string $collectionNameIn = null)
     {
         parent::__construct($requestIn, $collectionNameIn);
         $this->obj = $queryIn;
@@ -32,12 +32,12 @@ class DTBuilderBuilder extends DTBuilderTemplate
         }
     }
 
-    protected function sort(): void
+    protected function sort()
     {
         $this->obj->orderBy($this->dtRequest->sortCol, $this->dtRequest->sortDir);
     }
 
-    protected function paginate(): void
+    protected function paginate()
     {
         $req = $this->dtRequest;
         $this->obj->offset($req->start)->limit($req->length);

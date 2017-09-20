@@ -13,17 +13,17 @@ abstract class DTBuilderTemplate implements DTBuilder
     protected $recordsFiltered;
     protected $collectionName;
 
-    public function __construct(DTRequest $requestIn, ?string $collectionNameIn = null)
+    public function __construct(DTRequest $requestIn, string $collectionNameIn = null)
     {
         $this->dtRequest = $req = $requestIn;
         $this->collectionName = $collectionNameIn;
     }
 
-    abstract protected function search(): void;
+    abstract protected function search();
 
-    abstract protected function sort(): void;
+    abstract protected function sort();
 
-    abstract protected function paginate(): void;
+    abstract protected function paginate();
 
     abstract protected function buildResponse(): DatatablesServerSide;
 
