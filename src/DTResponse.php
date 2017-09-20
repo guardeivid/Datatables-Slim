@@ -1,6 +1,6 @@
 <?php
 
-namespace Markese\Datatables;
+namespace Gealtec\Datatables;
 use Illuminate\Support\Collection;
 use JsonSerializable;
 use Illuminate\Contracts\Support\Jsonable;

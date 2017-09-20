@@ -16,7 +16,7 @@ src/
 Via Composer
 
 ``` bash
-$ composer require markese/datatables
+$ composer require gealtec/datatables-slim
 ```
 
 ## Usage
@@ -24,7 +24,7 @@ $ composer require markese/datatables
 ``` php
 // Laravel:
 namespace App\Http\Controllers;
-use  Markese\Datatables\Datatables;
+use  Gealtec\Datatables\Datatables;
 
 class Controller extends BaseController
 {
@@ -79,6 +79,7 @@ If you discover any security related issues, please email john.markese@gmail.com
 ## Credits
 
 - [John Markese][link-author]
+- [Alonso Alejandro Zúñiga Beltrán][link-editor]
 - [All Contributors][link-contributors]
 
 ## License
@@ -98,4 +99,5 @@ The MIT License (MIT). Please see [License File](LICENSE.md) for more informatio
 [link-code-quality]: https://scrutinizer-ci.com/g/jmarkese/datatables
 [link-downloads]: https://packagist.org/packages/jmarkese/datatables
 [link-author]: https://github.com/jmarkese
+[link-editor]: https://github.com/aazbeltran
 [link-contributors]: ../../contributors

@@ -1,6 +1,6 @@
 <?php
 
-namespace Markese\Datatables;;
+namespace Gealtec\Datatables;;
 
 use Illuminate\Database\Eloquent\Builder;
 

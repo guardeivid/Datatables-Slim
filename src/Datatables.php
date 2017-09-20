@@ -1,6 +1,6 @@
 <?php
 
-namespace Markese\Datatables;
+namespace Gealtec\Datatables;
 use Slim\Http\Request;
 use Illuminate\Database\Eloquent\Builder as Eloquent;
 use Illuminate\Database\Query\Builder;
@@ -8,7 +8,7 @@ use Illuminate\Support\Collection;
 
 /**
  * Class Datatables
- * @package Markese\Datatables
+ * @package Gealtec\Datatables
  */
 class Datatables
 {

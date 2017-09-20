@@ -1,12 +1,12 @@
 <?php
 
-namespace Markese\Datatables;
+namespace Gealtec\Datatables;
 
 use Illuminate\Support\Collection;
 
 /**
  * Class DTBuilderCollection builds a DTResponse instance from a Laravel Collection.
- * @package Markese\Datatables
+ * @package Gealtec\Datatables
  */
 class DTBuilderCollection extends DTBuilderTemplate
 {
