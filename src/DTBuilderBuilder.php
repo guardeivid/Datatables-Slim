@@ -34,6 +34,7 @@ class DTBuilderBuilder extends DTBuilderTemplate
 
     protected function sort()
     {
+        $this->obj->getQuery()->orders = null;
         $this->obj->orderBy($this->dtRequest->sortCol, $this->dtRequest->sortDir);
     }
 
