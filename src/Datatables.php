@@ -50,7 +50,7 @@ class Datatables
      * @param DTRequest $request
      * @return Collection
      */
-    private static function eagerLoadEloquent(Eloquent $obj, DTRequest $request): Builder
+    private static function eagerLoadEloquent(Eloquent $obj, DTRequest $request): Eloquent
     {
         foreach($request->columns as $col){
             $relation = collect(explode('.', $col));
