@@ -28,6 +28,7 @@ class Datatables
 
         if ($obj instanceof Eloquent) {
             $obj = self::eagerLoadEloquent($obj, $request);
+            return (new DTBuilderBuilder($obj, $request, $collectionNameIn))->buildDT();
         }
 
         if ($obj instanceof Builder) {
@@ -49,7 +50,7 @@ class Datatables
      * @param DTRequest $request
      * @return Collection
      */
-    private static function eagerLoadEloquent(Eloquent $obj, DTRequest $request): Collection
+    private static function eagerLoadEloquent(Eloquent $obj, DTRequest $request): Builder
     {
         foreach($request->columns as $col){
             $relation = collect(explode('.', $col));
@@ -61,6 +62,6 @@ class Datatables
                 $obj->with($load);
             }
         }
-        return $obj->get();
+        return $obj;
     }
 }
