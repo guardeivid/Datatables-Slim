@@ -1,8 +1,9 @@
 <?php
 
-namespace Gealtec\Datatables;;
+namespace Gealtec\Datatables;
 
 use Illuminate\Database\Eloquent\Builder;
+use Illuminate\Database\Capsule\Manager as DB;
 
 class DTBuilderBuilder extends DTBuilderTemplate
 {
