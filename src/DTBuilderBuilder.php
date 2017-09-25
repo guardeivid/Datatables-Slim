@@ -20,7 +20,7 @@ class DTBuilderBuilder extends DTBuilderTemplate
         $terms = $this->dtRequest->searchTerms;
         $columns = $this->dtRequest->searchColumns;
 
-        $this->obj = \DB::table( \DB::raw("({$this->obj->toSql()}) as q") )
+        $this->obj = DB::table( DB::raw("({$this->obj->toSql()}) as q") )
             ->mergeBindings($this->obj)
             ->select('q.*');
 
