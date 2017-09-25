@@ -15,19 +15,15 @@ class DTBuilderBuilder extends DTBuilderTemplate
         $this->obj = $queryIn;
     }
 
-    protected function search(): void
+    protected function search()
     {
         $terms = $this->dtRequest->searchTerms;
         $columns = $this->dtRequest->searchColumns;
 
-        $this->obj = DB::table( DB::raw("({$this->obj->toSql()}) as q") )
-            ->mergeBindings($this->obj)
-            ->select('q.*');
-
         foreach ($terms as $term) {
             $this->obj->where(function ($q) use ($term, $columns) {
                 foreach ($columns as $col) {
-                    $q->orWhere($col, 'LIKE', '%' . $term . '%');
+                    if ($col !== "") $q->orWhere($col, 'LIKE', '%' . $term . '%');
                 }
             });
         }
