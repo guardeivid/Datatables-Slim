@@ -1,5 +1,5 @@
 {
-    "name": "gealtec/datatables-slim",
+    "name": "guardeivid/datatables-slim",
     "version":"1.0.9",
     "type": "library",
     "description": "Create HTTP responses compatible with Datatables for JQuery from Eloquent Models, Query Builders, and Laravel Collections.",
