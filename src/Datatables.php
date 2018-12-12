@@ -18,7 +18,7 @@ class Datatables
      * @param null|string|null $collectionNameIn
      * @return DatatablesServerSide
      */
-    public static function response ($obj, Request $requestIn, string $collectionNameIn = null): DatatablesServerSide
+    public static function response ($obj, Request $requestIn, string $collectionNameIn = null)/*: DatatablesServerSide*/
     {
         try {
             $request = new DTRequest($requestIn);
@@ -50,7 +50,7 @@ class Datatables
      * @param DTRequest $request
      * @return Collection
      */
-    private static function eagerLoadEloquent(Eloquent $obj, DTRequest $request): Eloquent
+    private static function eagerLoadEloquent(Eloquent $obj, DTRequest $request)/*: Eloquent*/
     {
         foreach($request->columns as $col){
             $relation = collect(explode('.', $col));
