@@ -90,7 +90,7 @@ class DTBuilderCollection extends DTBuilderTemplate
      * Build the DTResponse according to the interface's contructor.
      * @return DatatablesServerSide
      */
-    protected function buildResponse(): DatatablesServerSide
+    protected function buildResponse()/*: DatatablesServerSide*/
     {
         return new DTResponse($this->obj, $this->recordsTotal, $this->recordsFiltered, $this->dtRequest->draw, $this->collectionName);
     }
