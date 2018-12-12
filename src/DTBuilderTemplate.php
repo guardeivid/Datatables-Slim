@@ -25,14 +25,14 @@ abstract class DTBuilderTemplate implements DTBuilder
 
     abstract protected function paginate();
 
-    abstract protected function buildResponse(): DatatablesServerSide;
+    abstract protected function buildResponse()/*: DatatablesServerSide*/;
 
-    protected function count(): int
+    protected function count()/*: int*/
     {
         return $this->obj->count();
     }
 
-    final public function buildDT(): DTResponse
+    final public function buildDT()/*: DTResponse*/
     {
         $this->recordsTotal = $this->count();
 
