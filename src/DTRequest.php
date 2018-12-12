@@ -21,7 +21,7 @@ class DTRequest
 
     public function __construct(Request $request)
     {
-        $params=$request->getQueryParams();
+        $params=$request->get();
 
         $this->sort = !empty($params['columns'][$params['order'][0]['column']]);
 
