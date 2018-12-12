@@ -16,7 +16,7 @@ src/
 Via Composer
 
 ``` bash
-$ composer require gealtec/datatables-slim
+$ composer require guardeivid/datatables-slim "dev-master"
 ```
 
 ## Usage
