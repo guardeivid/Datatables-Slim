@@ -5,5 +5,5 @@ use Illuminate\Http\Request;
 
 interface DTBuilder
 {
-    public function buildDT(): DTResponse;
+    public function buildDT()/*: DTResponse*/;
 }
