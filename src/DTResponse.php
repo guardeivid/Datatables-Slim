@@ -6,12 +6,12 @@ use JsonSerializable;
 use Illuminate\Contracts\Support\Jsonable;
 use Illuminate\Contracts\Support\Arrayable;
 
-class DTResponse implements DatatablesServerSide, Arrayable, JsonSerializable, Jsonable
+class DTResponse implements /*DatatablesServerSide, */Arrayable, JsonSerializable, Jsonable
 {
     private $response;
     private $collectionName;
 
-    public function __construct(Collection $collection, int $recordsTotal, int $recordsFiltered, int $draw, string $collectionName = null)
+    public function __construct(Collection $collection, /*int*/ $recordsTotal, /*int*/ $recordsFiltered, $draw, string $collectionName = null)
     {
         $this->response = collect();
         $this->collectionName = (is_null($collectionName)) ? "data" : $collectionName;
@@ -21,13 +21,13 @@ class DTResponse implements DatatablesServerSide, Arrayable, JsonSerializable, J
         $this->response->put('draw', $draw);
     }
 
-    public function adapt(callable $callback): DatatablesServerSide
+    public function adapt(callable $callback)/*: DatatablesServerSide*/
     {
         $this->response->get($this->collectionName)->each($callback);
         return $this;
     }
 
-    public function toCollection(): Collection
+    public function toCollection()/*: Collection*/
     {
         return $this->response;
     }
